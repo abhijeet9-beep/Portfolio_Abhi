@@ -493,24 +493,101 @@ section{padding:88px 0;}
 .project-nav-links a{color:var(--yellow);}
 .project-nav-links a:hover{text-decoration:underline;}
 
-/* EDUCATION */
+/* ===========================
+   EDUCATION
+=========================== */
+
 .edu-item{
-  display:flex; justify-content:space-between; align-items:flex-start;
-  gap:20px;
-  padding:24px 0;
-  border-top:1px solid var(--line);
-  flex-wrap:wrap;
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) 75px;
+    column-gap:20px;
+    align-items:start;
+    padding:24px 0;
+    border-top:1px solid var(--line);
 }
-.edu-item:last-child{border-bottom:1px solid var(--line);}
-.edu-left h3{font-size:1.05rem; font-family:'IBM Plex Sans',sans-serif; font-weight:600; text-transform:none; margin-bottom:4px;}
-.edu-left span{color:var(--text-mute); font-size:0.88rem;}
+
+.edu-item:last-child{
+    border-bottom:1px solid var(--line);
+}
+
+.edu-left{
+    min-width:0;
+}
+
+.edu-left h3{
+    font-size:1.05rem;
+    font-family:'IBM Plex Sans',sans-serif;
+    font-weight:600;
+    text-transform:none;
+    margin-bottom:4px;
+    line-height:1.35;
+}
+
+.edu-left span{
+    color:var(--text-mute);
+    font-size:0.88rem;
+}
+
 .edu-right{
-  text-align:right;
-  font-family:'IBM Plex Mono', monospace;
-  font-size:0.78rem;
+    width:75px;
+    text-align:right;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    flex-shrink:0;
 }
-.edu-right .yr{color:var(--yellow);}
-.edu-right .score{color:var(--text-mute); display:block; margin-top:3px;}
+
+.edu-right .yr{
+    color:var(--yellow);
+    white-space:nowrap;
+}
+
+.edu-right .score{
+    color:var(--text-mute);
+    display:block;
+    margin-top:3px;
+    white-space:nowrap;
+}
+
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width:768px){
+
+    .edu-item{
+        grid-template-columns:minmax(0,1fr) 65px;
+        column-gap:15px;
+        padding:22px 0;
+    }
+
+    .edu-right{
+        width:65px;
+        text-align:right;
+        align-items:flex-end;
+    }
+
+    .edu-left h3{
+        font-size:0.98rem;
+        line-height:1.4;
+    }
+
+    .edu-left span{
+        font-size:0.78rem;
+        line-height:1.4;
+    }
+
+    .edu-right .yr{
+        font-size:0.75rem;
+    }
+
+    .edu-right .score{
+        font-size:0.68rem;
+    }
+}
 
 /* ===========================
    CONTACT
